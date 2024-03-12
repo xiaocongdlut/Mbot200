@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="Mbot200">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.011667 0.015598 0.13005"
+        rpy="0 0 0" />
+      <mass
+        value="19.885" />
+      <inertia
+        ixx="0.17133"
+        ixy="5.0814E-06"
+        ixz="5.992E-06"
+        iyy="0.35448"
+        iyz="0.00034947"
+        izz="0.47171" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Mbot200/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 0.53" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Mbot200/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="left_front_link">
+    <inertial>
+      <origin
+        xyz="-1.6848E-05 -0.045575 -8.0839E-06"
+        rpy="0 0 0" />
+      <mass
+        value="2.3817" />
+      <inertia
+        ixx="0.0025272"
+        ixy="-1.156E-08"
+        ixz="-4.6688E-08"
+        iyy="0.0041408"
+        iyz="8.5356E-08"
+        izz="0.0025269" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Mbot200/meshes/left_front_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Mbot200/meshes/left_front_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+    <gazebo reference="left_front_link">
+      <mu1 value="0.8"/>
+      <mu2 value="0.8"/>
+      <kp value="10000000.0" />
+      <kd value="1.0" />
+    </gazebo>
+
+  <joint
+    name="left_front_joint"
+    type="continuous">
+    <origin
+      xyz="0.3 0.27871 0.069"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_front_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+
+
+  <link
+    name="right_front_link">
+    <inertial>
+      <origin
+        xyz="1.6848E-05 0.045575 -8.0839E-06"
+        rpy="0 0 0" />
+      <mass
+        value="2.3817" />
+      <inertia
+        ixx="0.0025272"
+        ixy="-1.156E-08"
+        ixz="4.6688E-08"
+        iyy="0.0041408"
+        iyz="-8.5356E-08"
+        izz="0.0025269" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Mbot200/meshes/right_front_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Mbot200/meshes/right_front_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+    <gazebo reference="right_front_link">
+      <mu1 value="0.8"/>
+      <mu2 value="0.8"/>
+      <kp value="10000000.0" />
+      <kd value="1.0" />
+    </gazebo>
+
+  <joint
+    name="right_front_joint"
+    type="continuous">
+    <origin
+      xyz="0.3 -0.27971 0.069"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_front_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+
+
+  <link
+    name="left_back_link">
+    <inertial>
+      <origin
+        xyz="1.6848E-05 -0.045575 8.0839E-06"
+        rpy="0 0 0" />
+      <mass
+        value="2.3817" />
+      <inertia
+        ixx="0.0025272"
+        ixy="1.156E-08"
+        ixz="-4.6688E-08"
+        iyy="0.0041408"
+        iyz="-8.5356E-08"
+        izz="0.0025269" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Mbot200/meshes/left_back_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Mbot200/meshes/left_back_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+    <gazebo reference="left_back_link">
+      <mu1 value="0.8"/>
+      <mu2 value="0.8"/>
+      <kp value="10000000.0" />
+      <kd value="1.0" />
+    </gazebo>  
+
+  <joint
+    name="left_back_joint"
+    type="continuous">
+    <origin
+      xyz="-0.29 0.27871 0.069"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_back_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+
+
+  <link
+    name="right_back_link">
+    <inertial>
+      <origin
+        xyz="-1.6848E-05 0.045575 8.0839E-06"
+        rpy="0 0 0" />
+      <mass
+        value="2.3817" />
+      <inertia
+        ixx="0.0025272"
+        ixy="1.156E-08"
+        ixz="4.6688E-08"
+        iyy="0.0041408"
+        iyz="8.5356E-08"
+        izz="0.0025269" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Mbot200/meshes/right_back_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Mbot200/meshes/right_back_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+    <gazebo reference="right_back_link">
+      <mu1 value="0.8"/>
+      <mu2 value="0.8"/>
+      <kp value="10000000.0" />
+      <kd value="1.0" />
+    </gazebo>  
+
+  <joint
+    name="right_back_joint"
+    type="continuous">
+    <origin
+      xyz="-0.29 -0.27971 0.069"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_back_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="laser">
+    <inertial>
+      <origin    
+        xyz="0.0067655 9.2326E-05 0.020336"
+        rpy="0 0 0" />
+      <mass
+        value="1.325" />
+      <inertia
+        ixx="0.00060833"
+        ixy="8.0186E-07"
+        ixz="-0.00015821"
+        iyy="0.00095046"
+        iyz="-3.1034E-06"
+        izz="0.0010877" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Mbot200/meshes/laser.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Mbot200/meshes/laser.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="laser"
+    type="fixed">
+    <origin
+      xyz="0.30027 -0.023286 0.25485"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="laser" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="imu">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Mbot200/meshes/imu.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Mbot200/meshes/imu.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="imu"
+    type="fixed">
+    <origin
+      xyz="-0.13123 -0.035236 0.236"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="imu" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+
+</robot>
+

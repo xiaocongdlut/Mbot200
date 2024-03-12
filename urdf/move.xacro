@@ -1,0 +1,59 @@
+<robot name="Mbot200" xmlns:xacro="http://wiki.ros.org/xacro">
+ 
+
+    <xacro:macro name="joint_trans" params="joint_name">
+
+        <transmission name="${joint_name}_trans">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="${joint_name}">
+                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            </joint>
+            <actuator name="${joint_name}_motor">
+                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+        </transmission>
+    </xacro:macro>
+
+
+    <xacro:joint_trans joint_name="left_front_joint" />
+    <xacro:joint_trans joint_name="left_back_joint" />
+    <xacro:joint_trans joint_name="right_front_joint" />
+    <xacro:joint_trans joint_name="right_back_joint" />
+ 
+
+    <gazebo>
+        <plugin name="mecanum_controller" filename="libgazebo_ros_planar_move.so">
+            <rosDebugLevel>Debug</rosDebugLevel>
+            <publishWheelTF>true</publishWheelTF>
+            <robotNamespace>/</robotNamespace>
+            <publishTf>1</publishTf>
+            <publishWheelJointState>true</publishWheelJointState>
+            <alwaysOn>true</alwaysOn>
+            <updateRate>100.0</updateRate>
+            <commandTopic>cmd_vel</commandTopic>
+            <odometryTopic>odom</odometryTopic>
+            <odometryFrame>odom</odometryFrame>
+            <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+            <legacyMode>true</legacyMode>
+            <leftFrontJoint>left_front_joint</leftFrontJoint>
+            <rightFrontJoint>right_front_joint</rightFrontJoint>
+            <leftRearJoint>left_back_joint</leftRearJoint>
+            <rightRearJoint>right_back_joint</rightRearJoint>
+            <odometryRate>100</odometryRate>
+            <robotBaseFrame>base_link</robotBaseFrame>
+            <broadcastTF>1</broadcastTF>
+        </plugin>
+    </gazebo>
+
+
+  <gazebo>
+    <plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
+      <jointName>left_front_joint, right_front_joint, left_back_joint, right_back_joint</jointName>
+      <updateRate>50.0</updateRate>
+      <robotNamespace>/</robotNamespace>
+      <alwaysOn>true</alwaysOn>
+    </plugin>
+  </gazebo>
+ 
+</robot>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<launch>
+    <param name="robot_description" command="$(find xacro)/xacro $(find Mbot200)/urdf/total_Mbot.xacro"/>
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find Mbot200)/worlds/box_house.world"/>
+    </include>
+
+
+  <node name="robot_state_publisher"
+        pkg="robot_state_publisher" type="robot_state_publisher"
+        respawn="false" output="screen" />
+
+  <!-- Load controller configuration -->
+  <rosparam command="load" file="$(find Mbot200)/config/controller.yaml" />
+
+  <!-- Spawn controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner"
+        args="joint_state_controller right_front_controller left_front_controller right_back_controller left_back_controller" />
+  
+<node pkg="gazebo_ros" type="spawn_model" name="spawn_model" args="-urdf -model car -param robot_description"/>
+</launch>
+

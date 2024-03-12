@@ -1,0 +1,6 @@
+<launch>
+    <arg name="map" default="nav.yaml"/>
+    <node pkg="map_server" type="map_server" name="map_server" args="$(find Mbot200)/map/$(arg map)"/>
+
+  <!-- <node name="rviz" pkg="rviz" type="rviz"/> -->
+</launch>

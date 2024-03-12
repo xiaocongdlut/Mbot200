@@ -1,0 +1,5 @@
+<launch>
+    <include file="$(find Mbot200)/launch/gmapping.launch"/>
+    <include file="$(find Mbot200)/launch/path.launch"/>       
+    
+</launch>

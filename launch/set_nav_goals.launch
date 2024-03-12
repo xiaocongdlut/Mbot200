@@ -1,0 +1,5 @@
+<launch>
+    <include file="$(find Mbot200)/launch/control.launch"/>
+    <include file="$(find Mbot200)/launch/slam_auto.launch"/>
+    <node name="set_nav_goals" pkg="Mbot200" type="set_nav_goals"/>
+</launch>
